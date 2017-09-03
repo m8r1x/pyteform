@@ -1,0 +1,316 @@
+{
+
+	"http_status":200,
+	"stats":{
+		"responses":{
+			"showing":5,
+			"total":5,
+			"completed":2
+		}
+	},
+	"questions":[
+
+		{
+
+		"id":"textfield_37671344",
+		"question":"What is your name?",
+		"field_id":37671344
+
+		},
+		{
+
+		"id":"date_37962697",
+		"question":"What date were you born?",
+		"field_id":37962697
+
+		},
+		{
+
+		"id":"email_37962684",
+		"question":"What’s your email address?",
+		"field_id":37962684
+
+		},
+		{
+
+		"id":"textarea_37671420",
+		"question":"Please tell us a little about yourself.",
+		"field_id":37671420
+
+		},
+		{
+
+		"id":"website_37962927",
+		"question":"Please add your website URL:",
+		"field_id":37962927
+
+		},
+		{
+
+		"id":"statement_37671505",
+		"question":"Thanks !",
+		"field_id":37671505
+
+		},
+		{
+
+		"id":"yesno_37977952",
+		"question":"Are you a Game of Thrones fan?",
+		"field_id":37977952
+
+		},
+		{
+
+		"id":"terms_37962909",
+		"question":"Please read and confirm you accept our terms and conditions:",
+		"field_id":37962909
+
+		},
+		{
+
+		"id":"dropdown_37671567",
+		"question":"Who’s your favourite Game of Thrones character?",
+		"field_id":37671567
+
+		},
+		{
+
+		"id":"listimage_37967229_choice",
+		"question":"Which of these characters annoys you the most?",
+		"field_id":37967229
+
+		},
+		{
+
+		"id":"group_37977292",
+		"question":"Rate the deviousness of these Game of Thrones characters:",
+		"field_id":37977292
+
+		},
+		{
+
+		"id":"rating_37977395",
+		"question":"Tyrion Lannister",
+		"field_id":37977395,
+		"group":"group_37977292"
+
+		},
+		{
+
+		"id":"rating_37977403",
+		"question":"Littlefinger",
+		"field_id":37977403,
+		"group":"group_37977292"
+
+		},
+		{
+
+		"id":"rating_37977401",
+		"question":"Walder Frey",
+		"field_id":37977401,
+		"group":"group_37977292"
+
+		},
+		{
+
+		"id":"rating_37977400",
+		"question":"Margaery Tyrell",
+		"field_id":37977400,
+		"group":"group_37977292"
+
+		},
+		{
+
+		"id":"list_37963973_choice",
+		"question":"Who is going to sit on the Iron Throne at the end of the series?",
+		"field_id":37963973
+
+		},
+		{
+
+		"id":"list_37963973_other",
+		"question":"Who is going to sit on the Iron Throne at the end of the series?",
+		"field_id":37963973
+
+		},
+		{
+
+		"id":"opinionscale_37979723",
+		"question":"How much better would the series be without the Dragons?",
+		"field_id":37979723
+
+		},
+		{
+
+		"id":"fileupload_37980234",
+		"question":"Please upload a file here:",
+		"field_id":37980234
+
+		},
+		{
+
+		"id":"number_37980157",
+		"question":"How many major characters do you think have died in Game of Thrones?",
+		"field_id":37980157
+
+		},
+		{
+
+		"id":"payment_37962979_price",
+		"question":"The total price is: ",
+		"field_id":37962979
+
+		},
+		{
+
+		"id":"payment_37962979_last4",
+		"question":"The total price is: ",
+		"field_id":37962979
+
+		},
+		{
+
+		"id":"payment_37962979_name",
+		"question":"The total price is: ",
+		"field_id":37962979
+
+		},
+		{
+
+		"id":"payment_37962979_success",
+		"question":"The total price is: ",
+		"field_id":37962979
+
+		}
+
+],
+"responses":[
+		{
+
+		"completed":"0",
+		"token":"bbf6b7a9eaf65804f94c05d4568fc62f",
+		"metadata":{
+
+		"browser":"default",
+		"platform":"other",
+		"date_land":"2016-11-29 16:36:11",
+		"date_submit":"0000-00-00 00:00:00",
+
+		"referer":"https:\/\/sjudd.typeform.com\/to\/A8TcDI",
+		"network_id":"7d19966666"
+
+		},
+		"hidden":[
+
+		],
+		"answers":{
+
+		}
+
+		},
+		{
+
+		"completed":"1",
+		"token":"c0d44787a6bc86de34adf81976a624fb",
+		"metadata":{
+
+		"browser":"default",
+		"platform":"other",
+		"date_land":"2016-11-29 16:59:16",
+		"date_submit":"2016-11-29 16:59:51",
+
+		"referer":"https:\/\/sjudd.typeform.com\/to\/A8TcDI",
+		"network_id":"7d19966666"
+
+		},
+		"hidden":[
+
+		],
+		"answers":{
+
+		"textfield_37671344":"https:\/\/ssl.solutions.six.se\/fsb.public\/site\/public\/fondtorg\/funddetail_bank.page?magic=(cc(idAGL)) ",
+		"textarea_37671420":"https:\/\/ssl.solutions.six.se\/fsb.public\/site\/public\/fondtorg\/funddetail_bank.page?magic=(cc(idAGL)) ",
+		"dropdown_37671567":"Dropdown 1"
+
+		}
+
+		},
+		{
+
+		"completed":"1",
+		"token":"7bac73ad0818db745da00479c12de987",
+		"metadata":{
+
+		"browser":"default",
+		"platform":"other",
+		"date_land":"2016-12-05 09:59:01",
+		"date_submit":"2016-12-05 10:01:31",
+
+		"referer":"https:\/\/sjudd.typeform.com\/to\/A8TcDI",
+		"network_id":"7d19966666"
+
+		},
+		"hidden":[
+
+		],
+		"answers":{
+
+		"textfield_37671344":"Sean",
+		"date_37962697":"2000-01-01",
+		"email_37962684":"test@typeform.com",
+		"textarea_37671420":"Here’s some information about me!",
+		"website_37962927":"http:\/\/test.com",
+		"yesno_37977952":"1",
+		"terms_37962909":"1",
+		"dropdown_37671567":"Sandor Clegane",
+		"listimage_37967229_choice":"Jon Snow",
+		"rating_37977395":"10",
+		"rating_37977403":"10",
+		"rating_37977401":"9",
+		"rating_37977400":"9",
+		"list_37963973_choice":"Daenerys Targaryen",
+		"opinionscale_37979723":"6",
+		"fileupload_37980234":"https:\/\/api.typeform.com\/v0\/form\/A8TcDI\/fields\/37980234\/blob\/c82215948b78-Cersei.jpg?key=664527c4c8bf2c6be6484b813e23e4f8ae066666",
+		"number_37980157":"37",
+		"payment_37962979_price":"0"
+
+		}
+
+		},
+		{
+
+		"completed":"0",
+		"token":"b86db5dc48f6d021ee751e8f68595063",
+		"metadata":{
+
+		"browser":"default",
+		"platform":"other",
+		"date_land":"2016-12-05 10:01:38",
+		"date_submit":"0000-00-00 00:00:00",
+
+		"referer":"https:\/\/sjudd.typeform.com\/to\/A8TcDI",
+		"network_id":"7d19966666"
+
+		},
+		"hidden":[
+
+		],
+		"answers":{
+
+		}
+
+		},
+		{
+
+		"completed":"0",
+		"token":"5df20a5aebea4e0edfb4d2d8670b4a4b",
+		"metadata":{
+
+		"browser":"default",
+		"platform":"other",
+		"date_land":"2016-12-05 10:13:40"
+		}
+
+		}
+	]
+}
