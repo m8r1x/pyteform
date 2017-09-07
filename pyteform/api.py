@@ -2,6 +2,7 @@ import json
 import pandas as pd
 
 from urllib.request import urlopen
+from urllib.error import URLError, HTTPError
 
 def get_form(api_key, typeform_id, **options):
 	typeform_url = "https://api.typeform.com/v1/form/"
@@ -14,9 +15,19 @@ def get_form(api_key, typeform_id, **options):
 			if key not in filters: continue
 			typeform_url += '&{0}={1}'.format(key, value)
 
-	response = urlopen(typeform_url)
-	raw_data = response.read().decode('utf-8')
-	return json.loads(raw_data)
+	try:
+		response = urlopen(typeform_url)
+		raw_data = response.read().decode('utf-8')
+		return json.loads(raw_data)
+	except HTTPError as e:
+		print("HTTPError: %s" %str(e.code))
+	except URLError as e:
+		print("URLError: %s" %str(e.reason))
+	except Exception:
+		import traceback
+		print("generic exception: {0}".format(traceback.format_exc()))
+
+	return {}
 
 	
 class Typeform:
@@ -33,9 +44,10 @@ class Typeform:
 		return typeform_df
 
 	def answers(self, typeform_id, **options):
-		api_response = get_form(self.api_key, typeform_id, **options)
-		responses = api_response['responses']
-		answers_df = pd.DataFrame(responses)
+		typeform_responses = self.responses(typeform_id, **options)
+		typeform_answers = [response['answers'] for response in typeform_responses if 'answers' in response]
+		typeform_answers = [answer for answer in typeform_answers if answer != {}]
+		answers_df = pd.DataFrame(typeform_answers)
 		return answers_df
 
 	def questions(self, typeform_id, **options):
@@ -43,3 +55,8 @@ class Typeform:
 		qs = api_response['questions']
 		questions_df = pd.DataFrame(qs)
 		return questions_df
+
+	def responses(self, typeform_id, **options):
+		api_response = get_form(self.api_key, typeform_id, **options)
+		typeform_responses = api_response['responses']
+		return typeform_responses

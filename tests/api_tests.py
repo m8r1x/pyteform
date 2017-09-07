@@ -31,14 +31,38 @@ class TypeformTestCase(unittest.TestCase):
 		self.patcher.stop()
 
 	def test_questions(self):
-		""" Question column exists questions dataframe"""
+		"""  `questions` fields exist in a questions dataframe"""
+		question_keys = ["id", "question", "field_id"]
 		questions = self.typeform.questions("TYPEFORM_ID")
-		assert 'question' in questions.columns
+		for key in question_keys:
+			assert key in questions.columns
 
 	def test_answers(self):
-		""" Answers column exists in answers dataframe """
+		"""  `answers` fields exist in an answers dataframe """
+		answer_keys = ["textfield_37671344", "date_37962697", "email_37962684",
+		"textarea_37671420", "website_37962927", "yesno_37977952",
+		"terms_37962909", "dropdown_37671567", "listimage_37967229_choice",
+		"rating_37977395", "rating_37977403", "rating_37977401",
+		"rating_37977400","list_37963973_choice","opinionscale_37979723",
+		"fileupload_37980234","number_37980157","payment_37962979_price"]
+
 		answers = self.typeform.answers("TYPEFORM_ID")
-		assert 'answers' in answers.columns
+		for key in answer_keys:
+			assert key in answers.columns
+
+	def test_responses(self):
+		"""  `responses` fields exist in a responses dictionary """
+		response_keys = ["completed", "token", "metadata", "hidden", "answers"]
+		responses = self.typeform.responses("TYPEFORM_ID")
+		for key in response_keys:
+			assert key in responses[0]
+
+	def test_all_forms(self):
+		""" `all forms` fields exist in an all_forms dataframe"""
+		all_forms_keys = ["id", "name"]
+		all_forms = self.typeform.all_forms()
+		for key in all_forms_keys:
+			assert key in all_forms.columns
 
 if __name__ == '__main__':
 	unittest.main()
