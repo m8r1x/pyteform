@@ -33,9 +33,10 @@ class Typeform:
 		return typeform_df
 
 	def answers(self, typeform_id, **options):
-		api_response = get_form(self.api_key, typeform_id, **options)
-		responses = api_response['responses']
-		answers_df = pd.DataFrame(responses)
+		typeform_responses = self.responses(typeform_id, **options)
+		typeform_answers = [response['answers'] for response in typeform_responses if 'answers' in response]
+		typeform_answers = [answer for answer in typeform_answers if answer != {}]
+		answers_df = pd.DataFrame(typeform_answers)
 		return answers_df
 
 	def questions(self, typeform_id, **options):
@@ -43,3 +44,8 @@ class Typeform:
 		qs = api_response['questions']
 		questions_df = pd.DataFrame(qs)
 		return questions_df
+
+	def responses(self, typeform_id, **options):
+		api_response = get_form(self.api_key, typeform_id, **options)
+		typeform_responses = api_response['responses']
+		return typeform_responses
