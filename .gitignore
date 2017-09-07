@@ -1,2 +1,7 @@
 # bytecode files
 *.pyc
+# build and dist directories
+build/
+dist/
+# .egg-info
+*.egg-info
