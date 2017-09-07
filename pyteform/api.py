@@ -2,6 +2,7 @@ import json
 import pandas as pd
 
 from urllib.request import urlopen
+from urllib.error import URLError, HTTPError
 
 def get_form(api_key, typeform_id, **options):
 	typeform_url = "https://api.typeform.com/v1/form/"
@@ -14,9 +15,19 @@ def get_form(api_key, typeform_id, **options):
 			if key not in filters: continue
 			typeform_url += '&{0}={1}'.format(key, value)
 
-	response = urlopen(typeform_url)
-	raw_data = response.read().decode('utf-8')
-	return json.loads(raw_data)
+	try:
+		response = urlopen(typeform_url)
+		raw_data = response.read().decode('utf-8')
+		return json.loads(raw_data)
+	except HTTPError as e:
+		print("HTTPError: %s" %str(e.code))
+	except URLError as e:
+		print("URLError: %s" %str(e.reason))
+	except Exception:
+		import traceback
+		print("generic exception: {0}".format(traceback.format_exc()))
+
+	return {}
 
 	
 class Typeform:
