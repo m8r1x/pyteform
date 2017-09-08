@@ -12,7 +12,7 @@ A python wrapper for the typeform api.
 	* [Fetch responses](#fetch-resposes)
 	* [Fetch answers](#fetch-answers)
 	* [Passing Filter Parameters](#passing-filter-parameters)
-* [Contributing](#how-to-contributing)
+* [Contributing](#how-to-contribute)
 * [License](#license)
 
 ### Installation
