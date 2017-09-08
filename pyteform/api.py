@@ -1,9 +1,13 @@
 import json
 import pandas as pd
 
-from urllib.request import urlopen
-from urllib.error import URLError, HTTPError
+try:
+	from urllib.request import urlopen
+	from urllib.error import URLError, HTTPError
+except ImportError:
+	from urllib2 import urlopen, URLError, HTTPError
 
+	
 def get_form(api_key, typeform_id, **options):
 	typeform_url = "https://api.typeform.com/v1/form/"
 	typeform_url += str(typeform_id) + "?key=" + str(api_key)
