@@ -4,16 +4,19 @@ import unittest
 
 from mock import patch
 from os.path import normpath
-from urllib.parse import urlparse
 
 sys.path.append('..')
-from pyteform import Typeform
+from pyteform.api import Typeform
 
 def mock_urlopen(url):
 	""" 
 		A stub get_form() implementation that loads
 		responses from the filesystem.
 	"""
+	try:
+		from urllib.parse import urlparse
+	except ImportError:
+		from urlparse import urlparse
 	# Map path from url to file
 	parsed_url = urlparse(url)
 	payload_file = normpath("mockapi%s.json" % parsed_url.path)
