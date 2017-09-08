@@ -1,29 +1,43 @@
 # Pyteform
+
 A python wrapper for the typeform api.
 
-### Prerequisites
-* [pandas]
+### Table of Contents
+
+* [Installation](#installation)
+* [Basic Usage](#basic-usage)
+	* [Initialization](#initialization)
+	* [Fetch all forms](#fetch-all-forms)
+	* [Fetch questions](#fetch-questions)
+	* [Fetch responses](#fetch-resposes)
+	* [Fetch answers](#fetch-answers)
+	* [Passing Filter Parameters](#passing-filter-parameters)
+* [Contributing](#how-to-contributing)
+* [License](#license)
 
 ### Installation
-##### python3
+
 ```sh
 $ git clone https://github.com/m8r1x/pyteform.git
 $ cd pyteform
-$ pip3 install -r requirements.txt
-$ python3 setup.py install
+$ pipenv install
 
 ```
 
 ### Running Tests
+
 The project uses [mock] and [nose] for tests.
 To run the tests:
 ```sh
+$ pipenv install --dev
 $ cd tests
-$ nosetest -v api_tests.py
+$ nosetests -v api_tests.py
 ```
 
 ### Basic Usage
-##### Initialization
+
+#### Initialization
+
 ```python
 >>>
 >>> from pyteform.api import Typeform
@@ -33,7 +47,9 @@ $ nosetest -v api_tests.py
 >>> tf = Typeform(api_key)
 >>>
 ```
-##### Fetch all forms
+
+#### Fetch all forms
+
 ```python
 >>>
 >>> afdf = tf.all_forms()
@@ -48,7 +64,8 @@ Name: 0, dtype: object
 >>>
 ```
 
-##### Fetch questions from a typeform
+#### Fetch questions
+
 ```python
 >>>
 >>> qdf = tf.questions(afdf.id[5]) # pass TYPEFORM_ID
@@ -64,7 +81,8 @@ Name: 3, dtype: object
 >>>
 ```
 
-##### Fetch responses from a typeform
+#### Fetch responses
+
 ```python
 >>>
 >>> responses = tf.responses(afdf.id[7]) # pass TYPEFORM_ID
@@ -75,7 +93,8 @@ Name: 3, dtype: object
 >>>
 ```
 
-##### Fetch answers from a typeform
+#### Fetch answers
+
 ```python
 >>>
 >>> ansdf = tf.answers(afdf.id[5]) # pass TYPEFORM_ID
@@ -104,7 +123,8 @@ Name: 7, dtype: object
 >>>
 ```
 
-##### Passing filter parameters
+#### Passing filter parameters
+
 ```python
 >>>
 >>> # pass as many filter options from those provided by the typeform api
@@ -112,6 +132,19 @@ Name: 7, dtype: object
 >>> tf.answers('TYPEFORM_ID', completed="true", limit=10)
 >>>
 ```
+
+### How to Contribute
+
+1. Check for open issues or open a fresh issue to start a discussion around a feature idea or a bug. There is a Contributor Friendly tag for issues that should be ideal for people who are not very familiar with the codebase yet.
+2. Fork the repository on GitHub and create a branch `git checkout -b my-feature` for a feature or `git checkout -b bug-fix-bugname` for a bug fix to start making your changes.
+3. Write a test which shows that the bug was fixed or that the feature works as expected.
+4. Send a pull request and bug the maintainer until it gets merged and published. :) Make sure to add yourself to AUTHORS.
+
+### License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+**Free software, Hell Yeah!**
 
 [mock]: <https://github.com/testing-cabal/mock>
 [nose]: <https://github.com/nose-devs/nose>
