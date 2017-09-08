@@ -6,7 +6,7 @@ from mock import patch
 from os.path import normpath
 
 sys.path.append('..')
-from pyteform import Typeform
+from pyteform.api import Typeform
 
 def mock_urlopen(url):
 	""" 
