@@ -31,7 +31,7 @@ To run the tests:
 ```sh
 $ pipenv install --dev
 $ cd tests
-$ nosetests -v api_tests.py
+$ nosetests 
 ```
 
 ### Basic Usage
