@@ -33,7 +33,15 @@ def get_form(api_key, typeform_id, **options):
 
 	return {}
 
-	
+def keyerror(func):
+	def wrapper(*args, **kwargs):
+		try:
+			return func(*args, **kwargs)
+		except KeyError as e:
+			print("Key not found!")
+	return wrapper
+
+
 class Typeform:
 	def __init__(self, api_key):
 		self.api_key = str(api_key)
@@ -47,6 +55,7 @@ class Typeform:
 		typeform_df = pd.DataFrame(json_data)
 		return typeform_df
 
+	@keyerror
 	def answers(self, typeform_id, **options):
 		typeform_responses = self.responses(typeform_id, **options)
 		typeform_answers = [response['answers'] for response in typeform_responses if 'answers' in response]
@@ -54,12 +63,14 @@ class Typeform:
 		answers_df = pd.DataFrame(typeform_answers)
 		return answers_df
 
+	@keyerror
 	def questions(self, typeform_id, **options):
 		api_response = get_form(self.api_key, typeform_id, **options)
 		qs = api_response['questions']
 		questions_df = pd.DataFrame(qs)
 		return questions_df
 
+	@keyerror
 	def responses(self, typeform_id, **options):
 		api_response = get_form(self.api_key, typeform_id, **options)
 		typeform_responses = api_response['responses']
