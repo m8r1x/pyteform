@@ -12,6 +12,7 @@ A python wrapper for the typeform api.
 	* [Fetch responses](#fetch-resposes)
 	* [Fetch answers](#fetch-answers)
 	* [Passing Filter Parameters](#passing-filter-parameters)
+* [More Features](#more-features)
 * [Contributing](#how-to-contribute)
 * [License](#license)
 
@@ -131,6 +132,42 @@ Name: 7, dtype: object
 >>> # in the form `filter_option=filter_value` as additional parameters
 >>> tf.answers('TYPEFORM_ID', completed="true", limit=10)
 >>>
+```
+
+### More features
+
+#### Result distillation
+Pyteform supports extra features such as distillation of results to filter out:
+- emails
+- file upload urls
+
+To use this features, simply import the named functions from the `distil` module
+
+```python
+>>> 
+>>> from pyteform.distil import email, file_upload_url
+>>> 
+>>> ansdf = tf.answers("TYPEFORM_ID") # results from typeform answers extraction
+>>> 
+>>> emails = email(ansdf)
+>>> type(emails)
+<class 'dict'>
+>>> emails
+{'textfield_37671344': [], 'textarea_37671420': [], 'email_37962684': ['test@typeform.com'], 'rati
+ng_37977401': [], 'terms_37962909': [], 'yesno_37977952': [], 'dropdown_37671567': [], 'rating_379
+77395': [], 'payment_37962979_price': [], 'listimage_37967229_choice': [], 'website_37962927': [],
+ 'date_37962697': [], 'rating_37977403': [], 'fileupload_37980234': [], 'number_37980157': [], 'li
+st_37963973_choice': [], 'rating_37977400': [], 'opinionscale_37979723': []}
+>>> 
+>>> 
+>>> fu = file_upload_url(ansdf)
+>>> type(fu)
+<class 'dict'>
+>>> fu
+{'fileupload_37980234': ['https://api.typeform.com/v0/form/A8TcDI/fields/37980234/blob/c82215948b7
+8-Cersei.jpg?key=664527c4c8bf2c6be6484b813e23e4f8ae066666']}
+>>> 
+
 ```
 
 ### How to Contribute
