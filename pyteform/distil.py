@@ -11,7 +11,9 @@ def email(df):
 
 	for name in column_names:
 		column = df[name].tolist()
-		emails[name] = list(filter(filter_emails, column))
+		email_list = list(filter(filter_emails, column))
+		if email_list == []: continue
+		emails[name] = email_list
 
 	return emails
 
