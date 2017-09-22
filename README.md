@@ -53,7 +53,7 @@ $ nosetests
 
 ```python
 >>>
->>> afdf = tf.all_forms()
+>>> afdf = tf.all_forms() # if you're uncomfortable using dataframes pass param `format='list'` to change return type to list
 >>> type(afdf)
 <class 'pandas.core.frame.DataFrame'>
 >>> list(afdf)
@@ -69,7 +69,7 @@ Name: 0, dtype: object
 
 ```python
 >>>
->>> qdf = tf.questions(afdf.id[5]) # pass TYPEFORM_ID
+>>> qdf = tf.questions(afdf.id[5]) # params: `TYPEFORM_ID`, `format='list'`(optional)
 >>> type(qdf)
 <class 'pandas.core.frame.DataFrame'>
 >>> list(qdf)
@@ -86,7 +86,7 @@ Name: 3, dtype: object
 
 ```python
 >>>
->>> responses = tf.responses(afdf.id[7]) # pass TYPEFORM_ID
+>>> responses = tf.responses(afdf.id[7]) # params: `TYPEFORM_ID`
 >>> type(responses)
 <class 'list'>
 >>> responses[0]
@@ -98,7 +98,7 @@ Name: 3, dtype: object
 
 ```python
 >>>
->>> ansdf = tf.answers(afdf.id[5]) # pass TYPEFORM_ID
+>>> ansdf = tf.answers(afdf.id[5]) # params: `TYPEFORM_ID`, `format='list'`(optional)
 >>> type(ansdf)
 <class 'pandas.core.frame.DataFrame'>
 >>> list(ansdf)
@@ -153,11 +153,7 @@ To use this features, simply import the named functions from the `distil` module
 >>> type(emails)
 <class 'dict'>
 >>> emails
-{'textfield_37671344': [], 'textarea_37671420': [], 'email_37962684': ['test@typeform.com'], 'rati
-ng_37977401': [], 'terms_37962909': [], 'yesno_37977952': [], 'dropdown_37671567': [], 'rating_379
-77395': [], 'payment_37962979_price': [], 'listimage_37967229_choice': [], 'website_37962927': [],
- 'date_37962697': [], 'rating_37977403': [], 'fileupload_37980234': [], 'number_37980157': [], 'li
-st_37963973_choice': [], 'rating_37977400': [], 'opinionscale_37979723': []}
+{'email_37962684': ['test@typeform.com']}
 >>> 
 >>> 
 >>> fu = file_upload_url(ansdf)
