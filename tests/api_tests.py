@@ -42,7 +42,7 @@ class TypeformTestCase(unittest.TestCase):
 
 	def test_questions_return(self):
 		""" questions function should return a list """
-		questions = self.typeform.questions("TYPEFORM_ID", format='list')
+		questions = self.typeform.questions("TYPEFORM_ID", format=list)
 		assert type(questions) is list
 
 	def test_answers(self):
@@ -60,7 +60,7 @@ class TypeformTestCase(unittest.TestCase):
 
 	def test_answers_return(self):
 		""" answers function should return a list """
-		answers = self.typeform.answers("TYPEFORM_ID", format='list')
+		answers = self.typeform.answers("TYPEFORM_ID", format=list)
 		assert type(answers) is list
 
 	def test_responses(self):
@@ -79,7 +79,7 @@ class TypeformTestCase(unittest.TestCase):
 
 	def test_all_forms_return(self):
 		""" all_forms function should return a list """
-		all_forms = self.typeform.all_forms(format='list')
+		all_forms = self.typeform.all_forms(format=list)
 		assert type(all_forms) is list
 
 if __name__ == '__main__':
