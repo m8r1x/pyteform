@@ -46,27 +46,30 @@ class Typeform:
 	def __init__(self, api_key):
 		self.api_key = str(api_key)
 
-	def all_forms(self):
+	def all_forms(self, format="DataFrame"):
 		typeform_url = "https://api.typeform.com/v1/forms?key="
 		typeform_url += self.api_key
 		api_response = urlopen(typeform_url)
 		raw_data = api_response.read().decode('utf-8')
 		json_data = json.loads(raw_data)
+		if format == "list": return json_data
 		typeform_df = pd.DataFrame(json_data)
 		return typeform_df
 
 	@keyerror
-	def answers(self, typeform_id, **options):
+	def answers(self, typeform_id, format="DataFrame", **options):
 		typeform_responses = self.responses(typeform_id, **options)
 		typeform_answers = [response['answers'] for response in typeform_responses if 'answers' in response]
 		typeform_answers = [answer for answer in typeform_answers if answer != {}]
+		if format == "list": return typeform_answers
 		answers_df = pd.DataFrame(typeform_answers)
 		return answers_df
 
 	@keyerror
-	def questions(self, typeform_id, **options):
+	def questions(self, typeform_id, format="DataFrame", **options):
 		api_response = get_form(self.api_key, typeform_id, **options)
 		qs = api_response['questions']
+		if format == "list": return qs
 		questions_df = pd.DataFrame(qs)
 		return questions_df
 
