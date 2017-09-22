@@ -129,9 +129,10 @@ Name: 7, dtype: object
 
 ```python
 >>>
->>> # pass as many filter options from those provided by the typeform api
->>> # in the form `filter_option=filter_value` as additional parameters
->>> tf.answers('TYPEFORM_ID', completed="true", limit=10)
+>>> # pass a dictionary of filter options from those provided by the typeform api
+>>> options = { 'completed': "true", 'limit': 10 }
+>>> 
+>>> tf.answers('TYPEFORM_ID', options=options)
 >>>
 ```
 
