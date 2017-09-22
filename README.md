@@ -22,6 +22,7 @@ A python wrapper for the typeform api.
 $ git clone https://github.com/m8r1x/pyteform.git
 $ cd pyteform
 $ pipenv install
+$ python setup.py install
 
 ```
 
