@@ -54,7 +54,7 @@ $ nosetests
 
 ```python
 >>>
->>> afdf = tf.all_forms() # if you're uncomfortable using dataframes pass param `format='list'` to change return type to list
+>>> afdf = tf.all_forms() # if you're uncomfortable using dataframes pass param `format=list` to change return type to list
 >>> type(afdf)
 <class 'pandas.core.frame.DataFrame'>
 >>> list(afdf)
@@ -70,7 +70,7 @@ Name: 0, dtype: object
 
 ```python
 >>>
->>> qdf = tf.questions(afdf.id[5]) # params: `TYPEFORM_ID`, `format='list'`(optional)
+>>> qdf = tf.questions(afdf.id[5]) # params: `TYPEFORM_ID`, `format=list`(optional)
 >>> type(qdf)
 <class 'pandas.core.frame.DataFrame'>
 >>> list(qdf)
@@ -99,7 +99,7 @@ Name: 3, dtype: object
 
 ```python
 >>>
->>> ansdf = tf.answers(afdf.id[5]) # params: `TYPEFORM_ID`, `format='list'`(optional)
+>>> ansdf = tf.answers(afdf.id[5]) # params: `TYPEFORM_ID`, `format=list`(optional)
 >>> type(ansdf)
 <class 'pandas.core.frame.DataFrame'>
 >>> list(ansdf)
