@@ -40,6 +40,11 @@ class TypeformTestCase(unittest.TestCase):
 		for key in question_keys:
 			assert key in questions.columns
 
+	def test_questions_return(self):
+		""" questions function should return a list """
+		questions = self.typeform.questions("TYPEFORM_ID", format='list')
+		assert type(questions) is list
+
 	def test_answers(self):
 		"""  `answers` fields exist in an answers dataframe """
 		answer_keys = ["textfield_37671344", "date_37962697", "email_37962684",
@@ -52,6 +57,11 @@ class TypeformTestCase(unittest.TestCase):
 		answers = self.typeform.answers("TYPEFORM_ID")
 		for key in answer_keys:
 			assert key in answers.columns
+
+	def test_answers_return(self):
+		""" answers function should return a list """
+		answers = self.typeform.answers("TYPEFORM_ID", format='list')
+		assert type(answers) is list
 
 	def test_responses(self):
 		"""  `responses` fields exist in a responses dictionary """
@@ -66,6 +76,11 @@ class TypeformTestCase(unittest.TestCase):
 		all_forms = self.typeform.all_forms()
 		for key in all_forms_keys:
 			assert key in all_forms.columns
+
+	def test_all_forms_return(self):
+		""" all_forms function should return a list """
+		all_forms = self.typeform.all_forms(format='list')
+		assert type(all_forms) is list
 
 if __name__ == '__main__':
 	unittest.main()
