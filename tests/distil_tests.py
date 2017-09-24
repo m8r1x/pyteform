@@ -1,8 +1,6 @@
 import json
-import sys
 import unittest
 
-sys.path.append('..')
 from pyteform.distil import filter_emails, email, file_upload_url
 
 def load_answers(file):
@@ -25,7 +23,7 @@ class TestDistil(unittest.TestCase):
 		""" email is extracted using regex """
 		text = "I can extract your email@provider.domain from this text."
 		email = filter_emails(text)
-		assert "@" in email
+		assert "email@provider.domain" == email
 
 	def test_email(self):
 		""" returns dict = { 'field_id': ['email', ...] } """

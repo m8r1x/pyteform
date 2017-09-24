@@ -1,11 +1,9 @@
 import json
-import sys
 import unittest
 
 from mock import patch
 from os.path import normpath
 
-sys.path.append('..')
 from pyteform.api import Typeform
 
 def mock_urlopen(url):
@@ -43,7 +41,7 @@ class TypeformTestCase(unittest.TestCase):
 	def test_questions_return(self):
 		""" questions function should return a list """
 		questions = self.typeform.questions("TYPEFORM_ID", format=list)
-		assert type(questions) is list
+		assert isinstance(questions, list)
 
 	def test_answers(self):
 		"""  `answers` fields exist in an answers dataframe """
@@ -61,7 +59,7 @@ class TypeformTestCase(unittest.TestCase):
 	def test_answers_return(self):
 		""" answers function should return a list """
 		answers = self.typeform.answers("TYPEFORM_ID", format=list)
-		assert type(answers) is list
+		assert isinstance(answers, list)
 
 	def test_responses(self):
 		"""  `responses` fields exist in a responses dictionary """
@@ -80,7 +78,7 @@ class TypeformTestCase(unittest.TestCase):
 	def test_all_forms_return(self):
 		""" all_forms function should return a list """
 		all_forms = self.typeform.all_forms(format=list)
-		assert type(all_forms) is list
+		assert isinstance(all_forms, list)
 
 if __name__ == '__main__':
 	unittest.main()
