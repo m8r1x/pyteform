@@ -39,11 +39,11 @@ class TestDistil(unittest.TestCase):
 
 	def test_email_throws(self):
 		""" it should throw a TypeError """
-		self.assertRaises(TypeError, email)
+		self.assertRaises(TypeError, email, {})
 
 	def test_file_upload_throws(self):
 		""" it should throw a TypeError """
-		self.assertRaises(TypeError, file_upload_url)
+		self.assertRaises(TypeError, file_upload_url, {})
 
 if __name__ == '__main__':
 	unittest.main()
