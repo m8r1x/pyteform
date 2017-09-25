@@ -7,8 +7,8 @@ def filter_emails(data):
 		return x.group()
 	
 def email(df):
-	if type(df) is not pandas.core.frame.DataFrame:
-		if type(df) is not list:
+	if not isinstance(df, pandas.core.frame.DataFrame):
+		if not isinstance(df, list):
 			raise TypeError("Cannot convert to DataFrame!")
 		df = pandas.DataFrame(df)
 
@@ -24,8 +24,8 @@ def email(df):
 	return emails
 
 def file_upload_url(df):
-	if type(df) is not pandas.core.frame.DataFrame:
-		if type(df) is not list:
+	if not isinstance(df, pandas.core.frame.DataFrame):
+		if not isinstance(df, list):
 			raise TypeError("Cannot convert to DataFrame!")
 		df = pandas.DataFrame(df)
 

@@ -15,7 +15,7 @@ def get_form(api_key, typeform_id, options=None):
 	filters = ['completed', 'limit', 'offset', 'order_by', 'order_by[]', 'since', 'token', 'until']
 
 	if options:
-		if type(options) is not dict:
+		if not isinstance(options, dict):
 			raise TypeError("Options must be a dictionary!")
 		for key, value in options.items():
 			if key not in filters: continue
