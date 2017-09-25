@@ -37,5 +37,13 @@ class TestDistil(unittest.TestCase):
 		file_upload_urls = file_upload_url(df)
 		assert "Cersei.jpg" in file_upload_urls['fileupload_37980234'][0]
 
+	def test_email_throws(self):
+		""" it should throw a TypeError """
+		self.assertRaises(TypeError, email)
+
+	def test_file_upload_throws(self):
+		""" it should throw a TypeError """
+		self.assertRaises(TypeError, file_upload_url)
+
 if __name__ == '__main__':
 	unittest.main()
