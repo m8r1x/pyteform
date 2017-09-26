@@ -26,9 +26,9 @@ def get_form(api_key, typeform_id, options=None):
 		raw_data = response.read().decode('utf-8')
 		return json.loads(raw_data)
 	except HTTPError as e:
-		print("HTTPError: %s" %str(e.code))
+		print("HTTPError: %s" % e.code)
 	except URLError as e:
-		print("URLError: %s" %str(e.reason))
+		print("URLError: %s" % e.reason)
 	except Exception:
 		import traceback
 		print("generic exception: {0}".format(traceback.format_exc()))
