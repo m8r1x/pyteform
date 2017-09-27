@@ -1,1 +1,1 @@
-from pyteform.api import Typeform
+from .api import Typeform
