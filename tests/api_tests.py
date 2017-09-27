@@ -32,19 +32,19 @@ class TypeformTestCase(unittest.TestCase):
 		self.patcher.stop()
 
 	def test_questions(self):
-		"""  `questions` fields exist in a questions dataframe"""
+		"""  `question` fields should exist in a questions dataframe"""
 		question_keys = ["id", "question", "field_id"]
 		questions = self.typeform.questions("TYPEFORM_ID")
 		for key in question_keys:
 			assert key in questions.columns
 
 	def test_questions_return(self):
-		""" questions function should return a list """
+		""" questions function should return a list given param `format=list`"""
 		questions = self.typeform.questions("TYPEFORM_ID", format=list)
 		assert isinstance(questions, list)
 
 	def test_answers(self):
-		"""  `answers` fields exist in an answers dataframe """
+		"""  `answer` fields should exist in an answers dataframe """
 		answer_keys = ["textfield_37671344", "date_37962697", "email_37962684",
 		"textarea_37671420", "website_37962927", "yesno_37977952",
 		"terms_37962909", "dropdown_37671567", "listimage_37967229_choice",
@@ -57,26 +57,26 @@ class TypeformTestCase(unittest.TestCase):
 			assert key in answers.columns
 
 	def test_answers_return(self):
-		""" answers function should return a list """
+		""" answers function should return a list given param `format=list` """
 		answers = self.typeform.answers("TYPEFORM_ID", format=list)
 		assert isinstance(answers, list)
 
 	def test_responses(self):
-		"""  `responses` fields exist in a responses dictionary """
+		"""  `response` fields should exist in a responses dictionary """
 		response_keys = ["completed", "token", "metadata", "hidden", "answers"]
 		responses = self.typeform.responses("TYPEFORM_ID")
 		for key in response_keys:
 			assert key in responses[0]
 
 	def test_all_forms(self):
-		""" `all forms` fields exist in an all_forms dataframe"""
+		""" `all forms` fields should exist in an all_forms dataframe"""
 		all_forms_keys = ["id", "name"]
 		all_forms = self.typeform.all_forms()
 		for key in all_forms_keys:
 			assert key in all_forms.columns
 
 	def test_all_forms_return(self):
-		""" all_forms function should return a list """
+		""" all_forms function should return a list given param `format=list` """
 		all_forms = self.typeform.all_forms(format=list)
 		assert isinstance(all_forms, list)
 
