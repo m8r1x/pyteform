@@ -46,11 +46,11 @@ def keyerror(func):
 
 class Typeform:
 	def __init__(self, api_key):
-		self.api_key = str(api_key)
+		self.api_key = api_key
 
 	def all_forms(self, format=None):
 		typeform_url = "https://api.typeform.com/v1/forms?key="
-		typeform_url += self.api_key
+		typeform_url += str(self.api_key)
 		api_response = urlopen(typeform_url)
 		raw_data = api_response.read().decode('utf-8')
 		json_data = json.loads(raw_data)
