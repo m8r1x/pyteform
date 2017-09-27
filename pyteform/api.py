@@ -39,7 +39,7 @@ def keyerror(func):
 	def wrapper(*args, **kwargs):
 		try:
 			return func(*args, **kwargs)
-		except KeyError as e:
+		except KeyError:
 			print("Key not found!")
 	return wrapper
 
